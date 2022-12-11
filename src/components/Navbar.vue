@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar">
-    <div class="brand">
+    <div class="container">
+      <div class="brand">
       <router-link to="/"><img src="/logo.png" alt="Jobify Logo"></router-link>
     </div>
     <ul class="links">
@@ -10,6 +11,7 @@
     <div class="auth">
       <Button variant="primary" :outlined="true">Log in</Button>
       <Button variant="primary">Sign Up</Button>
+    </div>
     </div>
   </nav>
 </template>
@@ -24,15 +26,17 @@ export default {
 
 <style scoped>
   .navbar{
-    width: 100%;
-    margin: 1.5rem 0;
+    width: 97%;
+    margin: 1.5rem auto;
     border-radius: 8px;
     box-shadow: 0 7px 15px rgba(87, 87, 87, 0.2);
+    padding: 10px 20px;
+  }
+  .navbar .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-  }
+  } 
   .brand{
     width: 96px;
   }
