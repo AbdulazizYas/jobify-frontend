@@ -1,16 +1,42 @@
 <template>
     <Navbar />
-    <router-view/>
+    <main>
+      <router-view/>
+    </main>
     <Footer />
 </template>
 
 <script>
+import { onMounted, ref } from '@vue/runtime-core';
 import Footer from './components/Footer.vue';
 import Navbar from './components/Navbar.vue';
+import {useStore} from "vuex";
 
 export default {
   name:"App",
-  components: {Navbar, Footer}
+  components: {Navbar, Footer},
+  setup(){
+
+    const store = useStore();
+
+    try{
+      onMounted(async () => {
+      const response = await fetch("http://localhost:3000/user",{
+        headers:{'Content-Type': 'application/json'},
+        credentials: 'include'
+      }).catch(err => console.log(err));
+
+      const user = await response.json()
+
+      store.dispatch("user",user)
+      
+    });
+    } catch (e) {
+      
+      store.dispatch("user",null)
+    }
+
+  }
 }
 
 </script>

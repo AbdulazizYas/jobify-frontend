@@ -5,22 +5,38 @@
       <router-link to="/"><img src="/logo.png" alt="Jobify Logo"></router-link>
     </div>
     <ul class="links">
-        <li><router-link to="/fdsf">Browse</router-link></li>
+        <li><router-link to="/">Browse</router-link></li>
     </ul>
 
-    <div class="auth">
-      <Button variant="primary" :outlined="true">Log in</Button>
-      <Button variant="primary">Sign Up</Button>
+    <div class="profile" v-if="user && user.status === 'ok'">
+      <UserMenu :type="user.seeker? 'jobSeeker':'company'" :user="user"/>
+    </div>
+    <div class="auth" v-else>
+      <router-link to="/login"><Button variant="primary" :outlined="true">Log in</Button></router-link>
+      <router-link to="/signup"><Button variant="primary">Sign Up</Button></router-link>
     </div>
     </div>
   </nav>
 </template>
 
 <script>
+import { useStore } from 'vuex';
 import Button from './Button.vue';
+import UserMenu from './UserMenu.vue';
+import { computed } from '@vue/runtime-core';
 export default {
-  components: { Button },
+  components: { Button, UserMenu },
   name: "NavBar",
+  setup(){
+
+    const store = useStore();
+    const user = computed(() => store.state.user);
+
+    console.log(user);
+    return {
+      user
+    }
+  }
 };
 </script>
 
