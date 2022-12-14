@@ -5,7 +5,7 @@
       <router-link to="/"><img src="/logo.png" alt="Jobify Logo"></router-link>
     </div>
     <ul class="links">
-        <li><router-link to="/">Browse</router-link></li>
+        <li><router-link to="/jobs">Browse</router-link></li>
     </ul>
 
     <div class="profile" v-if="user && user.status === 'ok'">
