@@ -47,6 +47,7 @@ img {
     width: 85px;
     height: auto;
     border-radius: 50%;
+    background-color: #D9D9D9;
 }
 h1, h2, h3, h4{
     line-height: 0px;

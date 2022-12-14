@@ -1,7 +1,7 @@
 <template>
     <div class="JobDescription">    
         <section Class="JobTitle" >
-            <h1>{{ JobTitle }}</h1>
+                <h1>{{ JobTitle }}</h1>
         </section>
 
         <div Class="Card">
@@ -23,7 +23,14 @@
             <p> {{ Description }}</p>        
 
         </section>
-        <button class="ApplyButton"><span>Apply</span></button>
+        <section class="section">
+            <div class="buttonContainer">
+                <button class="ApplyButton">
+                    <span>Apply</span>
+                </button>
+                <h4>{{applications}} Aplied for his job</h4>
+            </div>
+        </section>
     </div>
 </template>
   
@@ -31,6 +38,7 @@
     export default {
     // add props here
         props: {
+            applications: Number,
             JobTitle: String,
             CompanyName: String,
             CompanyLocation: String,
@@ -70,35 +78,41 @@
         width: 95%;
         padding: 5px 16px;
         margin: 15px auto;
+        white-space: pre-wrap;
     }
     h1, h2, h3, h4, p{
         font-style: normal;
         font-weight: 700;
-        color: #000000;
+        color: #094067;
+
     }
     h1{
         font-size: 29.29px;
+        line-height: 35px;
     }
     h2 {
         font-size: 22px;
+        line-height: 26px;
     }
     h3 {
         font-size: 16.5px;
-        margin-bottom: 12.5px;
+        line-height: 20px;
     }
     h4 {
         font-size: 12.38px;
         color: #5F6C7B;
-        line-height: 0px;
         margin-top: 0;
         white-space: nowrap;
         position: relative;
+        top: -5px;
+        line-height: 15px;
 
     }
     .CampanyInfo{
         width: max-content;
         display: flex;
         flex-direction: row;
+        align-items: center;
         padding: 5px 16px;
     }
     .Card{
@@ -120,12 +134,15 @@
         font-style: normal;
         font-weight: 700;
         font-size: 22px;
+        margin-top: 0%;
         color: #FFFFFF;
     }
     img {
         width: 65px;
         height: auto;
         border-radius: 50%;
+        background-color: #D9D9D9;
+        margin-right: 16px;
     }
     p {
         font-size: 16.5px;
@@ -137,4 +154,21 @@
         align-items: left;
         width: auto;
     }
+    .CampanyInfoText{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+    .section{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        align-items: left;
+    }
+    section{
+        word-wrap: normal;
+    }
+    
+    
+
 </style>
