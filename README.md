@@ -1,5 +1,9 @@
 # jobify-frontend
 
+## Link for the backend:
+---
+https://github.com/AbdulazizYas/jobify-backend/
+
 ## Project setup
 ```
 npm install
